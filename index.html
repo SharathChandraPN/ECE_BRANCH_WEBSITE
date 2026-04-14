@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ECE Department | CYBER_NET</title>
+    <!-- Google Fonts for Cyberpunk Vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo-dropdown-container">
+            <button class="logo-dropdown-btn" onclick="toggleLogoMenu()">Department <span class="arrow"></span></button>
+            <div id="logoDropdown" class="logo-dropdown-content">
+                <a href="#">Faculty</a>
+                <a href="#">Scheme & Syllabus</a>
+                <a href="#">Announcements</a>
+                <a href="#">Resources</a>
+            </div>
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#placements">Placements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Electronics & Communication Engineering</h1>
+        <p>Innovation in Electronics, Communication & Embedded Systems</p>
+        <button onclick="document.getElementById('labs').scrollIntoView({behavior: 'smooth'})">Explore Labs</button>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+        <div class="apple-feature-container">
+            <div class="apple-feature-text">
+                <h2>Discover ECE.</h2>
+                <p>
+                    The ECE department drives innovation through communication systems, VLSI design,
+                    embedded systems, IoT, and signal processing.
+                </p>
+            </div>
+
+            <!-- APPLE STYLE FEATURE IMAGE -->
+            <div class="apple-feature-image">
+                <video autoplay muted loop playsinline>
+                    <source src="1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Labs -->
+    <section id="labs" class="labs-container">
+        <h2>Our Laboratories</h2>
+
+        <h3 class="sem-title">3rd Semester</h3>
+        <div class="labs">
+            <div class="card">
+                <h3>DEC</h3>
+                <p>Digital Circuit Design using Verilog</p>
+            </div>
+            <div class="card">
+                <h3>AEC</h3>
+                <p>Analog Electronic Circuits</p>
+            </div>
+            <div class="card">
+                <h3>Skill Lab 1</h3>
+                <p>Electronics and Communication Skill Lab-1</p>
+            </div>
+        </div>
+
+        <h3 class="sem-title">4th Semester</h3>
+        <div class="labs">
+            <div class="card">
+                <h3>AC Lab</h3>
+                <p>Analog Communication</p>
+            </div>
+            <div class="card">
+                <h3>MC Lab</h3>
+                <p>Microcontroller and Its applications</p>
+            </div>
+            <div class="card">
+                <h3>Skill Lab 2</h3>
+                <p>Electronics and Communication Skill Lab-2</p>
+            </div>
+        </div>
+
+        <h3 class="sem-title">5th Semester</h3>
+        <div class="labs">
+            <div class="card">
+                <h3>DSP Lab</h3>
+                <p>Digital Signal Processing</p>
+            </div>
+            <div class="card">
+                <h3>CMOS VLSI</h3>
+                <p>Principles of CMOS VLSI design</p>
+            </div>
+            <div class="card">
+                <h3>Skill Lab 3</h3>
+                <p>Dept. Skill Lab - 3</p>
+            </div>
+        </div>
+
+        <h3 class="sem-title">6th Semester</h3>
+        <div class="labs">
+            <div class="card">
+                <h3>DC Lab</h3>
+                <p>Digital Communication</p>
+            </div>
+            <div class="card">
+                <h3>CCN Lab</h3>
+                <p>Computer Communication Networks</p>
+            </div>
+        </div>
+
+        <h3 class="sem-title">7th Semester</h3>
+        <div class="labs">
+            <div class="card">
+                <h3>Mobile & Wireless</h3>
+                <p>Mobile and Wireless Communications</p>
+            </div>
+            <div class="card">
+                <h3>IoT</h3>
+                <p>IoT and its Applications</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placements Section -->
+    <section id="placements" class="placements-section">
+        <h2>Top Recruiting Companies</h2>
+        <p>Our students are shaping the future at these leading organizations in Bengaluru and beyond.</p>
+
+        <div class="logo-grid">
+            <a href="https://intimetec.com" target="_blank" class="logo-item" title="Intime Tec"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://intimetec.com&size=128"
+                    alt="Intime Tec"></a>
+            <a href="https://itcinfotech.com" target="_blank" class="logo-item" title="ITC Infotech"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://itcinfotech.com&size=128"
+                    alt="ITC Infotech"></a>
+            <a href="https://www.elitmus.com" target="_blank" class="logo-item" title="eLitmus"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.elitmus.com&size=128"
+                    alt="eLitmus"></a>
+            <a href="https://technologics.in" target="_blank" class="logo-item" title="Technologics"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://technologics.in&size=128"
+                    alt="Technologics"></a>
+            <a href="https://kalvium.com" target="_blank" class="logo-item" title="Kalvium"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://kalvium.com&size=128"
+                    alt="Kalvium"></a>
+            <a href="https://rinex.ai" target="_blank" class="logo-item" title="Rinex"><img
+                    src="https://logo.clearbit.com/rinex.ai"
+                    onerror="this.onerror=null; this.src='https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://rinex.ai&size=128'"
+                    alt="Rinex"></a>
+            <a href="https://ediglobe.com" target="_blank" class="logo-item" title="EdiGlobe"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://ediglobe.com&size=128"
+                    alt="EdiGlobe"></a>
+            <a href="https://evergreensolutions.in" target="_blank" class="logo-item" title="Ever Green Solutions"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://evergreensolutions.in&size=128"
+                    alt="Ever Green Solutions"></a>
+            <a href="https://corizo.in" target="_blank" class="logo-item" title="Corizo"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://corizo.in&size=128"
+                    alt="Corizo"></a>
+            <a href="http://sanketika.in" target="_blank" class="logo-item" title="Sanketika"><img
+                    src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://sanketika.in&size=128"
+                    alt="Sanketika"></a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: principal@ssit.edu.in</p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 ECE Department | All Rights Reserved</p>
+    </footer>
+
+    <!-- Floating Chatbot Widget -->
+    <!-- Just replace '#' in href below with your chatbot link -->
+    <a href="#" class="chatbot-float" target="_blank" title="Chat with us!">
+        <!-- Chat Bubble SVG Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path
+                d="M12 2C6.48 2 2 6.03 2 11c0 2.85 1.48 5.39 3.79 7.04C5.55 19.98 5 22 5 22s2.61-.43 4.54-1.74A10.66 10.66 0 0 0 12 20c5.52 0 10-4.03 10-9s-4.48-9-10-9z" />
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

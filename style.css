@@ -1,0 +1,626 @@
+/* APPLE MINIMALIST THEME VARIABLES */
+:root {
+    --bg-main: #000000;
+    --bg-secondary: #1c1c1e;
+    --text-main: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent-blue: #2997ff;
+    --nav-bg: rgba(0, 0, 0, 0.72);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    --hero-bg: radial-gradient(ellipse at top, #111 0%, #000 100%);
+}
+
+/* LIGHT MODE VARIABLES */
+body.light-mode {
+    --bg-main: #f5f5f7;
+    --bg-secondary: #ffffff;
+    --text-main: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent-blue: #0066cc;
+    --nav-bg: rgba(255, 255, 255, 0.72);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    --hero-bg: radial-gradient(ellipse at top, #ffffff 0%, #f5f5f7 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, .logo {
+    font-weight: 600;
+    letter-spacing: -0.05em;
+}
+
+/* Header & Nav */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background 0.4s ease;
+}
+
+/* Logo Dropdown */
+.logo-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-dropdown-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
+    transition: opacity 0.2s ease;
+}
+
+.logo-dropdown-btn:hover {
+    opacity: 0.8;
+}
+
+.logo-dropdown-btn .arrow {
+    font-size: 12px;
+}
+
+.logo-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 15px;
+    background-color: var(--nav-bg);
+    min-width: 220px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 200;
+    overflow: hidden;
+}
+
+.logo-dropdown-content a {
+    color: var(--text-main);
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    transition: background 0.2s ease, padding-left 0.2s ease;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.logo-dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding-left: 25px;
+}
+
+body.light-mode .logo-dropdown-content a:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.show {
+    display: block !important;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+nav ul li a:hover {
+    opacity: 1;
+}
+
+.theme-toggle {
+    margin-left: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 980px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-main);
+    transform: scale(1.05);
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 180px 20px 140px;
+    background: var(--hero-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ffffff, #a0a0a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+body.light-mode .hero h1 {
+    background: linear-gradient(90deg, #1d1d1f, #434346);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(255,255,255,0.7);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+    margin-bottom: 40px;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+body.light-mode .hero p {
+    color: #444444;
+    text-shadow: 0 2px 10px rgba(255,255,255,0.5);
+}
+
+.hero button {
+    padding: 14px 28px;
+    font-size: 17px;
+    color: #ffffff;
+    background-color: var(--accent-blue);
+    border: none;
+    border-radius: 980px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero button:hover {
+    transform: scale(1.02);
+    background-color: #1a88eb;
+}
+
+/* Sections */
+section {
+    padding: 100px 40px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 3rem;
+    color: var(--text-main);
+    margin-bottom: 60px;
+}
+
+/* About Section & Apple Feature Image */
+.apple-feature-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+}
+
+.apple-feature-text {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.apple-feature-text h2 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.04em;
+    color: var(--text-main);
+}
+
+.apple-feature-text p {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.apple-feature-image {
+    flex: 1.2;
+    height: 700px;
+}
+
+.apple-feature-image video,
+.apple-feature-image canvas,
+.apple-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transform: scale(1.1); /* Enlarge slightly to let it feel expansive */
+}
+
+/* Labs and Projects Container */
+.labs-container {
+    background: var(--bg-main);
+}
+
+.sem-title {
+    color: var(--text-secondary);
+    margin: 60px 0 30px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Grid Layout for Cards */
+.labs, .projects {
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    justify-content: center;
+    gap: 30px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+/* Minimalist Apple Cards */
+.card {
+    background: var(--bg-secondary);
+    border-radius: 24px;
+    padding: 40px 30px;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid var(--border-color);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* Placements Section */
+.placements-section {
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-main);
+}
+
+.placements-section p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+}
+
+.logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.logo-item {
+    width: 160px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.logo-item:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+body.light-mode .logo-item {
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+body.light-mode .logo-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    /* Clean formatting for alt text if an image link goes dead */
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Contact Section */
+#contact {
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-main);
+}
+
+#contact p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Floating Chatbot */
+.chatbot-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(41, 151, 255, 0.5);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Pop animation on load, then pulse */
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, pulseGlow 2.5s infinite 1s;
+}
+
+.chatbot-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 30px rgba(41, 151, 255, 0.8);
+    animation: none; /* Stop pulsing on hover so it stays scaled */
+}
+
+.chatbot-float svg {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(41, 151, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(41, 151, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(41, 151, 255, 0); }
+}
+
+/* Footer */
+footer {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 40px;
+    font-size: 14px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* FACULTY 3D SHOWCASE */
+.faculty-section {
+    padding: 0 40px 100px;
+    background: var(--bg-main);
+}
+
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    perspective: 1000px; /* Required to render 3D depth of children */
+}
+
+.faculty-card {
+    position: relative;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    padding: 50px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    overflow: hidden; /* Contains the dynamic glare */
+}
+
+body.light-mode .faculty-card {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);    
+}
+
+.card-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(105deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 80%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.card-content {
+    transform: translateZ(50px); /* Causes text/image to float beautifully above card background */
+    z-index: 10;
+    position: relative;
+    pointer-events: none;
+}
+
+.faculty-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 4px solid var(--accent-blue);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+    background: var(--nav-bg);
+}
+
+body.light-mode .light-text-avatar {
+    filter: invert(1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.faculty-card h3 {
+    font-size: 1.6rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.faculty-card .role {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+}
+
+.faculty-card .desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1050px) {
+    .labs, .projects {
+        grid-template-columns: repeat(2, 320px);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .labs, .projects {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    
+    .apple-feature-container {
+        flex-direction: column;
+    }
+    
+    .apple-feature-text h2 {
+        font-size: 3rem;
+    }
+    
+    .apple-feature-image {
+        height: 300px;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--nav-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        position: absolute;
+        top: 60px; 
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        text-align: center;
+    }
+    
+    nav ul li {
+        margin: 15px 0;
+    }
+    
+    .menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-main);
+        font-size: 24px;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+}
