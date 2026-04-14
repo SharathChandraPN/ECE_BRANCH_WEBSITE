@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SIS Access</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top, #111, #000);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* CARD */
+    .sis-card {
+      width: 340px;
+      padding: 30px;
+      border-radius: 20px;
+
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+
+      text-align: center;
+      color: white;
+
+      transition: transform 0.2s ease;
+    }
+
+    /* TITLE */
+    .sis-card h2 {
+      margin-bottom: 20px;
+    }
+
+    /* INPUT */
+    .sis-card input {
+      width: 100%;
+      padding: 7px;
+      padding-left: -1px;
+      margin-bottom: 15px;
+
+      border-radius: 10px;
+      border: none;
+
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      outline: none;
+      text-align: center;
+    }
+
+    /* BUTTON GROUP */
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* BUTTON */
+    .sis-card button {
+      flex: 1;
+      padding: 10px;
+
+      border-radius: 10px;
+      border: none;
+
+      background: white;
+      color: black;
+
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .sis-card button:hover {
+      transform: scale(1.05);
+    }
+
+    /* RESULT */
+    #result {
+      margin-top: 12px;
+      color: #2997ff;
+      font-weight: 500;
+    }
+
+    /* TICK ICON */
+    .tick {
+      display: none;
+      font-size: 20px;
+      color: #2997ff;
+      margin-top: 10px;
+      animation: pop 0.3s ease;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="sis-card" id="card">
+    <h2>Enter USN</h2>
+
+    <input type="text" id="usn" placeholder="Enter USN" oninput="this.value = this.value.toUpperCase()">
+
+    <div class="btn-group">
+      <button onclick="getPassword()">Get</button>
+      <button onclick="copyPassword()">Copy</button>
+    </div>
+
+    <p id="result"></p>
+    <div id="tick" class="tick">✔</div>
+  </div>
+
+  <script>
+    // DATA
+
+    const students = {
+      "23EC001": "ABH091104",
+      "23EC002": "ADA130705",
+      "23EC003": "AMR230206",
+      "23EC004": "AMU030306",
+      "23EC005": "ANA090605",
+      "23EC006": "ANA110605",
+      "23EC007": "ANK031205",
+      "23EC008": "APO180704",
+      "23EC009": "APO300604",
+      "23EC010": "BHA050105",
+      "23EC011": "BHA240206",
+      "23EC012": "BHA101005",
+      "23EC013": "BHI150705",
+      "23EC014": "BHO170805",
+      "23EC015": "CHE111205",
+      "23EC016": "CHI240805",
+      "23EC017": "CHI120805",
+      "23EC018": "DAR201104",
+      "23EC019": "DHA080604",
+      "23EC020": "DHR220805",
+      "23EC021": "DIV091205",
+      "23EC022": "THI221004",
+      "23EC023": "GAG061005",
+      "23EC024": "GAN081005",
+      "23EC025": "GAN080205",
+      "23EC026": "HAR070105",
+      "23EC027": "HAR140505",
+      "23EC028": "HAR201105",
+      "23EC029": "HEM250105",
+      "23EC030": "HEM280905",
+      "23EC031": "HEM230605",
+      "23EC032": "HEM100605",
+      "23EC033": "HEM120605",
+      "23EC034": "HEM110206",
+      "23EC035": "JEE250206",
+      "23EC036": "JEE010406",
+      "23EC037": "KAM300705",
+      "23EC038": "KAR230105",
+      "23EC039": "KAU130305",
+      "23EC040": "KEE300805",
+      "23EC041": "KIR150405",
+      "23EC042": "KOD090204",
+      "23EC043": "KOM080605",
+      "23EC044": "KRI140804",
+      "23EC045": "KRU191105",
+      "23EC046": "KUS020406",
+      "23EC048": "LAV071205",
+      "23EC049": "LEE121205",
+      "23EC050": "LIK121205",
+      "23EC051": "LIK040306",
+      "23EC052": "LIN310705",
+      "23EC053": "MAD040206",
+      "23EC054": "MAL140705",
+      "23EC055": "MAN290105",
+      "23EC056": "MAN251105",
+      "23EC057": "MAN300306",
+      "23EC058": "MAN110505",
+      "23EC059": "MOH210805",
+      "23EC060": "MON071104",
+      "23EC061": "MON240205",
+      "23EC062": "NAR060805",
+      "23EC063": "NAR200505",
+      "23EC064": "NIK011205",
+      "23EC065": "NIK040205",
+      "23EC066": "NIS170106",
+      "23EC068": "NIT230505",
+      "23EC069": "NIT260405",
+      "23EC070": "PAV041005",
+      "23EC071": "PAV230505",
+      "23EC072": "PRA010304",
+      "23EC073": "PRA041005",
+      "23EC074": "PRA050905",
+      "23EC075": "PUN140206",
+      "23EC076": "PUR100805",
+      "23EC077": "RAG220305",
+      "23EC078": "RAK130805",
+      "23EC079": "RAK011105",
+      "23EC080": "RAK030305",
+      "23EC081": "RAK291105",
+      "23EC082": "RAM100805",
+      "23EC083": "RAN280903",
+      "23EC084": "RAV060404",
+      "23EC085": "REN271205",
+      "23EC086": "RUC210804",
+      "23EC087": "SAC270206",
+      "23EC088": "SAH230805",
+      "23EC089": "SAM111105",
+      "23EC090": "SAN230705",
+      "23EC091": "SAN280205",
+      "23EC092": "SHA081105",
+      "23EC093": "SHA040704",
+      "23EC094": "SHA071004",
+      "23EC095": "SHA151204",
+      "23EC096": "SHE220705",
+      "23EC097": "SHI040605",
+      "23EC098": "SHR121005",
+      "23EC099": "SHR191105",
+      "23EC100": "SHR151204",
+      "23EC101": "SHR150905",
+      "23EC102": "SHY250702",
+      "23EC103": "SOF121204",
+      "23EC105": "SPO170905",
+      "23EC106": "SRI210405",
+      "23EC107": "SRU080705",
+      "23EC108": "SUB211204",
+      "23EC109": "THE020605",
+      "23EC110": "THE250405",
+      "23EC111": "USH260506",
+      "23EC112": "VAR070306",
+      "23EC113": "VAR040405",
+      "23EC114": "VIN260805",
+      "23EC115": "YAS020605",
+      "23EC116": "YAS151104",
+      "23EC117": "YAS291205",
+      "23EC118": "YAS081005",
+      "23EC119": "YAS220605"
+    };
+
+
+
+    // GET PASSWORD
+    function getPassword() {
+      const usn = document.getElementById("usn").value.trim().toUpperCase();
+
+      if (students[usn]) {
+        document.getElementById("result").innerText = students[usn];
+      } else {
+        document.getElementById("result").innerText = "USN not found";
+      }
+    }
+
+    // COPY WITH TICK
+    function copyPassword() {
+      const text = document.getElementById("result").innerText;
+
+      if (text && text !== "USN not found") {
+        navigator.clipboard.writeText(text);
+
+        const tick = document.getElementById("tick");
+        tick.style.display = "block";
+
+        setTimeout(() => {
+          tick.style.display = "none";
+        }, 1000);
+      }
+    }
+
+    // 3D EFFECT
+    const card = document.getElementById("card");
+
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const rotateX = -(y / rect.height - 0.5) * 10;
+      const rotateY = (x / rect.width - 0.5) * 10;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "rotateX(0) rotateY(0)";
+    });
+  </script>
+
+</body>
+
+</html>

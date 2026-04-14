@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ECE Department | CYBER_NET</title>
+    <title>SSIT_ECE</title>
     <!-- Google Fonts for Cyberpunk Vibe -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -14,9 +14,10 @@
     <!-- Navbar -->
     <header>
         <div class="logo-dropdown-container">
-            <button class="logo-dropdown-btn" onclick="toggleLogoMenu()">Department <span class="arrow"></span></button>
+            <button class="logo-dropdown-btn" onclick="toggleLogoMenu()">Department <span
+                    class="arrow">↓</span></button>
             <div id="logoDropdown" class="logo-dropdown-content">
-                <a href="#">Faculty</a>
+                <a href="http://sis.e365.tech/login.aspx?AppType=E&sid=1040">SIS</a>
                 <a href="#">Scheme & Syllabus</a>
                 <a href="#">Announcements</a>
                 <a href="#">Resources</a>
@@ -26,9 +27,10 @@
             <ul id="menu">
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <!--<li><a href="#labs">Labs</a></li>-->
-                <li><a href="#placements">Placements</a></li>
+                <li><a href="sis.html">SIS</a></li>
+                <li><a href=" #placements">Placements</a></li>
                 <li><a href="#contact">Contact</a></li>
+
             </ul>
             <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
             <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -37,7 +39,8 @@
 
     <!-- Hero -->
     <section class="hero">
-        <h1>Electronics & Communication Engineering</h1>
+        <h1>Sri Siddhartha Institute of Technology</h1>
+        <h2>Electronics & Communication Engineering</h2>
         <p>Innovation in Electronics, Communication & Embedded Systems</p>
         <button onclick="document.getElementById('labs').scrollIntoView({behavior: 'smooth'})">Explore Labs</button>
     </section>
@@ -202,6 +205,24 @@
     </a>
 
     <script src="script.js"></script>
+
+
+    <div id="sisBox" class="sis-box">
+        <div class="sis-content">
+            <h2>Enter USN</h2>
+
+            <input type="text" id="sis-usn" placeholder="Enter USN">
+
+            <button onclick="getPassword()">Get Password</button>
+
+            <p id="result"></p>
+
+            <button onclick="copyPassword()">Copy</button>
+            <button onclick="closeSIS()">Close</button>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
